@@ -10,4 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Logging
-        run: echo "Frontend Deployed Successfully"
+        run: echo "Start to deploy on staging..."
+
+      - name: Checkout Staging branches
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        run: npm install -g pnpm@latest
+          pnpm install
+
+      - name: Check Code Linter
+        run: pnpm lint
